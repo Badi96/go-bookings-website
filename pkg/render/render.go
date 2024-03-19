@@ -7,28 +7,42 @@ import (
 	"log"
 	"net/http"
 	"path/filepath"
+
+	"github.com/Badi96/Golang-Bed-Breakfast-booking-website/pkg/config"
 )
 
 var functions = template.FuncMap{}
+var app *config.AppConfig
+
+// NewTemplates sets the config for the package
+func NewTamplates(a *config.AppConfig) {
+	app = a
+}
 
 // RendrTemplate redners template using html/template
 // tmpl name of string we want to render
 func RenderTemplate(w http.ResponseWriter, tmpl string) {
-	tc, err := CreateTemplateCache()
-	if err != nil {
-		log.Fatal(err)
+	var tc map[string]*template.Template
+
+	//Is not in production, read directly from desk, otherwise read from our template cache.
+	if app.UseCache {
+
+		// get the template cache from the app config
+		tc = app.TemplateCache
+	} else {
+		tc, _ = CreateTemplateCache()
 	}
 
 	t, ok := tc[tmpl]
 	if !ok {
-		log.Fatal(err)
+		log.Fatal("Could not get template from template cahce")
 	}
 	buf := new(bytes.Buffer)
 
 	// take template, execute it, don't pass any data, and store it in buf variable
 	_ = t.Execute(buf, nil)
 
-	_, err = buf.WriteTo(w)
+	_, err := buf.WriteTo(w)
 	if err != nil {
 		fmt.Println("Error writing template to browser", err)
 	}
