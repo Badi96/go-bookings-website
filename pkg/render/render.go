@@ -9,6 +9,7 @@ import (
 	"path/filepath"
 
 	"github.com/Badi96/Golang-Bed-Breakfast-booking-website/pkg/config"
+	"github.com/Badi96/Golang-Bed-Breakfast-booking-website/pkg/models"
 )
 
 var functions = template.FuncMap{}
@@ -19,9 +20,13 @@ func NewTamplates(a *config.AppConfig) {
 	app = a
 }
 
+func AddDataDefault(td *models.TemplateData) *models.TemplateData {
+	return td
+}
+
 // RendrTemplate redners template using html/template
 // tmpl name of string we want to render
-func RenderTemplate(w http.ResponseWriter, tmpl string) {
+func RenderTemplate(w http.ResponseWriter, tmpl string, td *models.TemplateData) {
 	var tc map[string]*template.Template
 
 	//Is not in production, read directly from desk, otherwise read from our template cache.
@@ -39,8 +44,9 @@ func RenderTemplate(w http.ResponseWriter, tmpl string) {
 	}
 	buf := new(bytes.Buffer)
 
+	td = AddDataDefault(td) // passing in the default data to template data
 	// take template, execute it, don't pass any data, and store it in buf variable
-	_ = t.Execute(buf, nil)
+	_ = t.Execute(buf, td)
 
 	_, err := buf.WriteTo(w)
 	if err != nil {
