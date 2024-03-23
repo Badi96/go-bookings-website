@@ -3,8 +3,8 @@ package main
 import (
 	"net/http"
 
-	"github.com/Badi96/Golang-Bed-Breakfast-booking-website/pkg/config"
-	"github.com/Badi96/Golang-Bed-Breakfast-booking-website/pkg/handlers"
+	"github.com/Badi96/go-bookings-website/pkg/config"
+	"github.com/Badi96/go-bookings-website/pkg/handlers"
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
 )

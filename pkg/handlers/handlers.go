@@ -3,9 +3,9 @@ package handlers
 import (
 	"net/http"
 
-	"github.com/Badi96/Golang-Bed-Breakfast-booking-website/pkg/config"
-	"github.com/Badi96/Golang-Bed-Breakfast-booking-website/pkg/models"
-	"github.com/Badi96/Golang-Bed-Breakfast-booking-website/pkg/render"
+	"github.com/Badi96/go-bookings-website/pkg/config"
+	"github.com/Badi96/go-bookings-website/pkg/models"
+	"github.com/Badi96/go-bookings-website/pkg/render"
 )
 
 // Repo the repositiry used by the handlers

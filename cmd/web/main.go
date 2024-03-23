@@ -6,9 +6,9 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/Badi96/Golang-Bed-Breakfast-booking-website/pkg/config"
-	"github.com/Badi96/Golang-Bed-Breakfast-booking-website/pkg/handlers"
-	"github.com/Badi96/Golang-Bed-Breakfast-booking-website/pkg/render"
+	"github.com/Badi96/go-bookings-website/pkg/config"
+	"github.com/Badi96/go-bookings-website/pkg/handlers"
+	"github.com/Badi96/go-bookings-website/pkg/render"
 	"github.com/alexedwards/scs/v2"
 )
 
