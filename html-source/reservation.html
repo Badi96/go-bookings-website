@@ -76,14 +76,6 @@
         </div>
 
 
-        <div class="row">
-            <div class="col">
-                <p id="myparagraph"> This is some text. </p>
-                <p>
-                    <button id = "colorButton" type="submit" class="btn btn-primary mt-4">click meeey</button>
-                </p>
-            </div>
-        </div>
 
         <div class="row my-footer">
             <div class = "col">
@@ -121,7 +113,7 @@
 
         const elem = document.getElementById('reservation-dates');
         const rangepicker = new DateRangePicker(elem, {
-            // ...options
+            format: "yyyy-mm-dd",
         });
 
         let attention = Prompt();

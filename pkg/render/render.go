@@ -10,6 +10,7 @@ import (
 
 	"github.com/Badi96/go-bookings-website/pkg/config"
 	"github.com/Badi96/go-bookings-website/pkg/models"
+	"github.com/justinas/nosurf"
 )
 
 var functions = template.FuncMap{}
@@ -20,13 +21,14 @@ func NewTamplates(a *config.AppConfig) {
 	app = a
 }
 
-func AddDataDefault(td *models.TemplateData) *models.TemplateData {
+func AddDataDefault(td *models.TemplateData, r *http.Request) *models.TemplateData {
+	td.CSRFToken = nosurf.Token(r)
 	return td
 }
 
 // RendrTemplate redners template using html/template
 // tmpl name of string we want to render
-func RenderTemplate(w http.ResponseWriter, tmpl string, td *models.TemplateData) {
+func RenderTemplate(w http.ResponseWriter, r *http.Request, tmpl string, td *models.TemplateData) {
 	var tc map[string]*template.Template
 
 	//Is not in production, read directly from desk, otherwise read from our template cache.
@@ -44,7 +46,7 @@ func RenderTemplate(w http.ResponseWriter, tmpl string, td *models.TemplateData)
 	}
 	buf := new(bytes.Buffer)
 
-	td = AddDataDefault(td) // passing in the default data to template data
+	td = AddDataDefault(td, r) // passing in the default data to template data
 	// take template, execute it, don't pass any data, and store it in buf variable
 	_ = t.Execute(buf, td)
 
