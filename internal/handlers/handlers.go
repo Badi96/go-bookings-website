@@ -6,9 +6,9 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/Badi96/go-bookings-website/pkg/config"
-	"github.com/Badi96/go-bookings-website/pkg/models"
-	"github.com/Badi96/go-bookings-website/pkg/render"
+	"github.com/Badi96/go-bookings-website/internal/config"
+	"github.com/Badi96/go-bookings-website/internal/models"
+	"github.com/Badi96/go-bookings-website/internal/render"
 )
 
 // Repo the repositiry used by the handlers
