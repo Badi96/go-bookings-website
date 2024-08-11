@@ -7,6 +7,7 @@ import (
 	"net/http"
 
 	"github.com/Badi96/go-bookings-website/internal/config"
+	"github.com/Badi96/go-bookings-website/internal/forms"
 	"github.com/Badi96/go-bookings-website/internal/models"
 	"github.com/Badi96/go-bookings-website/internal/render"
 )
@@ -55,7 +56,13 @@ func (m *Repository) About(w http.ResponseWriter, r *http.Request) {
 
 // Reservation renders the make a reservation page and displays form
 func (m *Repository) Reservation(w http.ResponseWriter, r *http.Request) {
-	render.RenderTemplate(w, r, "make-reservation.page.tmpl", &models.TemplateData{})
+	render.RenderTemplate(w, r, "make-reservation.page.tmpl", &models.TemplateData{
+		Form: forms.New(nil),
+	})
+}
+
+// PostReservation handles the posting of a reservation form
+func (m *Repository) PostReservation(w http.ResponseWriter, r *http.Request) {
 }
 
 // Gnerals renders the room page
