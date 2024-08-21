@@ -1,0 +1,10 @@
+mode: set
+github.com/Badi96/go-bookings-website/cmd/web/main.go:23.13,25.16 2 0
+github.com/Badi96/go-bookings-website/cmd/web/main.go:29.2,37.16 4 0
+github.com/Badi96/go-bookings-website/cmd/web/main.go:25.16,27.3 1 0
+github.com/Badi96/go-bookings-website/cmd/web/main.go:40.18,58.16 10 1
+github.com/Badi96/go-bookings-website/cmd/web/main.go:62.2,68.12 6 1
+github.com/Badi96/go-bookings-website/cmd/web/main.go:58.16,61.3 2 0
+github.com/Badi96/go-bookings-website/cmd/web/middleware.go:10.45,20.2 3 1
+github.com/Badi96/go-bookings-website/cmd/web/middleware.go:23.50,25.2 1 1
+github.com/Badi96/go-bookings-website/cmd/web/routes.go:12.49,37.2 18 1
